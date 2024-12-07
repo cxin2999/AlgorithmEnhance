@@ -46,8 +46,8 @@ public class HJE02 {
             int cur = Integer.parseInt(s[i]);
             top = pushIntoStack(stack, top, cur);
         }
-        for(int k = top-1;k >= 0;k--){
-            System.out.print(stack[k]+" ");
+        for (int k = top - 1; k >= 0; k--) {
+            System.out.print(stack[k] + " ");
         }
     }
 
@@ -59,7 +59,7 @@ public class HJE02 {
             sum += stack[j];
             if (sum == cur) {
                 top = j;
-                top = pushIntoStack(stack,top,2 * cur);
+                top = pushIntoStack(stack, top, 2 * cur);
                 break;
             } else {
                 j--;

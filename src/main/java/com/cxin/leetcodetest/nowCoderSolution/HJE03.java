@@ -28,7 +28,7 @@ public class HJE03 {
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
             char[] input = in.nextLine().toCharArray();
-            StringBuilder output= new StringBuilder();
+            StringBuilder output = new StringBuilder();
             int count = 0;
             for (int i = 0; i < input.length; i++) {
                 char c = input[i];
@@ -36,7 +36,7 @@ public class HJE03 {
                 if (c == ']') count--;
                 if (count == 0 && c == '_' && (i == 0 || input[i - 1] != '\\')) {//count == 0 不在括号内
                     output.append("(^|$|[,+])");
-                }else {
+                } else {
                     output.append(c);
                 }
             }

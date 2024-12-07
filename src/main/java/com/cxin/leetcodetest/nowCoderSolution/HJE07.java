@@ -19,17 +19,17 @@ import java.util.Scanner;
  * 说明：输⼊数字前两个数字是矩阵⼤⼩。后⾯的是数字是矩阵内容。
  * 这个矩阵的内容如下：
  * {
- *  0,0,0,0
- *  0,2,2,2
- *  0,2,0,0
- *  0,2,0,0
+ * 0,0,0,0
+ * 0,2,2,2
+ * 0,2,0,0
+ * 0,2,0,0
  * }
  * 起始位置 (0,0)被修改为1后，最终只能同化矩阵为：
  * {
- *  1,1,1,1
- *  1,2,2,2
- *  1,2,0,0
- *  1,2,0,0
+ * 1,1,1,1
+ * 1,2,2,2
+ * 1,2,0,0
+ * 1,2,0,0
  * }
  * 所以矩阵中⾮1的元素个数为9。
  */
@@ -42,20 +42,20 @@ public class HJE07 {
         Scanner in = new Scanner(System.in);
         int m = in.nextInt();
         int n = in.nextInt();
-        int [][] map = new int[m][n];
+        int[][] map = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 map[i][j] = in.nextInt();
             }
         }
-        map = same(map,0,0);
+        map = same(map, 0, 0);
         int count = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(map[i][j] != 1){
+                if (map[i][j] != 1) {
                     count++;
                 }
-                System.out.print(map[i][j]+" ");
+                System.out.print(map[i][j] + " ");
             }
             System.out.println("");
         }
@@ -63,21 +63,21 @@ public class HJE07 {
 
     }
 
-    public static int[][] same(int[][] map,int i,int j){
+    public static int[][] same(int[][] map, int i, int j) {
         int m = map.length;
         int n = map[0].length;
         map[i][j] = 1;
-        if(i-1 >0 && map[i-1][j] == 0){//up
-            map = same(map,i-1,j);
+        if (i - 1 > 0 && map[i - 1][j] == 0) {//up
+            map = same(map, i - 1, j);
         }
-        if(i+1 < m && map[i+1][j] == 0){
-            map = same(map,i+1,j);
+        if (i + 1 < m && map[i + 1][j] == 0) {
+            map = same(map, i + 1, j);
         }
-        if(j-1 >0 && map[i][j-1] == 0){
-            map = same(map,i,j-1);
+        if (j - 1 > 0 && map[i][j - 1] == 0) {
+            map = same(map, i, j - 1);
         }
-        if(j+1 < n && map[i][j+1] == 0){
-            map = same(map,i,j+1);
+        if (j + 1 < n && map[i][j + 1] == 0) {
+            map = same(map, i, j + 1);
         }
         return map;
     }

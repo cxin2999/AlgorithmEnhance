@@ -18,9 +18,9 @@ import java.util.Scanner;
 public class HJE04 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        while (in.hasNextLine()){
+        while (in.hasNextLine()) {
             int input = in.nextInt();
-            while(!isSymmetrical(input) || !isPrimeNum(input)){
+            while (!isSymmetrical(input) || !isPrimeNum(input)) {
                 input++;
             }
             System.out.println(input);
@@ -50,31 +50,31 @@ public class HJE04 {
 
     /**
      * v1.2
-     * @param num
-     * @return
      *
-     * 1. <=1都不是素数
+     * @param num
+     * @return 1. <=1都不是素数
      * 2. 检查2 到 √num（如果一个因子大于√num，那另一个因子一定小于√num）
      */
-    public static boolean isPrimeNum(int num){
-        if(num <=1) return false;
+    public static boolean isPrimeNum(int num) {
+        if (num <= 1) return false;
         for (int i = 2; i <= Math.sqrt(num); i++) {
-            if(num % i == 0){//取余，余数=0证明除净了，不是素数
+            if (num % i == 0) {//取余，余数=0证明除净了，不是素数
                 return false;
             }
         }
         return true;
     }
-//TODO 寻找下一个回文数
-    public static boolean isSymmetrical(int num){
-        if(num > 0 && num < 10){
+
+    //TODO 寻找下一个回文数
+    public static boolean isSymmetrical(int num) {
+        if (num > 0 && num < 10) {
             return true;
-        }else {
+        } else {
             char[] chars = String.valueOf(num).toCharArray();
             int i = 0;
-            int j = chars.length -1;
-            while(i <= j){
-                if(chars[i] != chars[j]){
+            int j = chars.length - 1;
+            while (i <= j) {
+                if (chars[i] != chars[j]) {
                     return false;
                 }
                 i++;

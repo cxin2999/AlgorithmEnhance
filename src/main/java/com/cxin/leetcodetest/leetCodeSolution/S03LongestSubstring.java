@@ -13,11 +13,11 @@ public class S03LongestSubstring {
         int max = 0;
         int j = 0;
         for (int i = 0; i < s.length(); i++) {
-            while (j < s.length() && !set.contains(s.charAt(j))){//j < s.length()需要放前面
+            while (j < s.length() && !set.contains(s.charAt(j))) {//j < s.length()需要放前面
                 set.add(s.charAt(j));
                 j++;
             }
-            max = Math.max(max,j-i);
+            max = Math.max(max, j - i);
             set.remove(s.charAt(i));
         }
         return max;

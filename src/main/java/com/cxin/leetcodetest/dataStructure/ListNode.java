@@ -1,7 +1,6 @@
 package com.cxin.leetcodetest.dataStructure;
 
 
-
 public class ListNode {
     int val;
     ListNode next;
@@ -19,15 +18,15 @@ public class ListNode {
     }
 
     public static ListNode initByArray(int[] nums) {
-        if(nums.length >0){
+        if (nums.length > 0) {
             ListNode nextNode = new ListNode(nums[nums.length - 1]);
-            for (int i = nums.length -2; i >=0; i--) {
+            for (int i = nums.length - 2; i >= 0; i--) {
                 ListNode cur = new ListNode(nums[i]);
                 cur.setNext(nextNode);
                 nextNode = cur;
             }
             return nextNode;
-        }else {
+        } else {
             return null;
         }
     }
@@ -49,23 +48,23 @@ public class ListNode {
     }
 
     public static String toString(ListNode l) {
-        if(l != null){
+        if (l != null) {
             int val = l.getVal();
             String res = "(" + val + ")";
-            while (l.next != null){
+            while (l.next != null) {
                 int nextVal = l.next.getVal();
                 res += "->" + "(" + nextVal + ")";
                 l = l.next;
             }
             return res;
-        }else {
+        } else {
             return "";
         }
     }
 
     public static void main(String[] args) {
-        int[] nums2 = new int[]{9,9,9,9,9,9,9};
-        int[] nums1 = new int[]{9,9,9,9};
+        int[] nums2 = new int[]{9, 9, 9, 9, 9, 9, 9};
+        int[] nums1 = new int[]{9, 9, 9, 9};
 //        int[] nums2 = new int[]{1,1,1,1,1};
 //        int[] nums1 = new int[]{1,1};
         ListNode l1 = initByArray(nums1);
@@ -74,27 +73,27 @@ public class ListNode {
         System.out.println(toString(l2));
         ListNode result = l1;
         ListNode l1_front = null;
-        while(l1 != null && l2 !=null){
-            setListNodeVal(l1.val+l2.val,l1);
+        while (l1 != null && l2 != null) {
+            setListNodeVal(l1.val + l2.val, l1);
             l1_front = l1;
             l1 = l1.next;
             l2 = l2.next;
         }
-        if(l1 == null && l2 != null){
+        if (l1 == null && l2 != null) {
             l1_front.next = l2;
         }
 
         System.out.println(toString(result));
     }
 
-    public static void setListNodeVal(int sum,ListNode l){
-        int v = sum%10;
-        int mul = sum/10;
+    public static void setListNodeVal(int sum, ListNode l) {
+        int v = sum % 10;
+        int mul = sum / 10;
         l.val = v;
-        if(mul >0){
-            if(l.next != null){
-                setListNodeVal(mul + l.next.val,l.next);
-            }else {
+        if (mul > 0) {
+            if (l.next != null) {
+                setListNodeVal(mul + l.next.val, l.next);
+            } else {
                 l.next = new ListNode(mul);
             }
         }

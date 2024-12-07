@@ -51,40 +51,40 @@ public class HJE01 {
         int n = Integer.parseInt(s[0]);
         int e = Integer.parseInt(s[1]);
         int[] x = new int[n];
-        Arrays.fill(x,-1);//数组值全部设置为 -1
+        Arrays.fill(x, -1);//数组值全部设置为 -1
         for (int i = 0; i < e; i++) {
             String tp = in.nextLine();
             String[] s2 = tp.split(" ");
             int t = Integer.parseInt(s2[0]);
             int p = Integer.parseInt(s2[1]);
-            execute(x,t,p,n);
+            execute(x, t, p, n);
         }
         int maxT = 0;
         String maxTStr = "";
         for (int i = 0; i < x.length; i++) {
             System.out.print(x[i]);
-            if(x[i] > maxT){
+            if (x[i] > maxT) {
                 maxTStr = "";
                 maxT = x[i];
-                maxTStr += i+" ";
-            }else if(x[i] == maxT){
-                maxTStr += i+" ";
+                maxTStr += i + " ";
+            } else if (x[i] == maxT) {
+                maxTStr += i + " ";
             }
         }
         int length = maxTStr.replace(" ", "").length();
         System.out.println(length);
-        System.out.println(maxTStr.substring(0,maxTStr.length()-1));// 0 到 lenght-1 表示去掉最后一个字符
+        System.out.println(maxTStr.substring(0, maxTStr.length() - 1));// 0 到 lenght-1 表示去掉最后一个字符
 
     }
 
-    public static int[] execute(int[] x,int t,int p,int n){//点火操作
-        int max = n/2 +1;
+    public static int[] execute(int[] x, int t, int p, int n) {//点火操作
+        int max = n / 2 + 1;
         for (int i = 0; i < max; i++) {
-            if(x[(p+i)%n] == -1 || x[(p+i)%n] > t){
-                x[(p+i)%n] = t;
+            if (x[(p + i) % n] == -1 || x[(p + i) % n] > t) {
+                x[(p + i) % n] = t;
             }
-            if(x[(p-i+n)%n] == -1 || x[(p-i+n)%n] > t){
-                x[(p-i+n)%n] = t;
+            if (x[(p - i + n) % n] == -1 || x[(p - i + n) % n] > t) {
+                x[(p - i + n) % n] = t;
             }
             t++;
         }

@@ -2,8 +2,8 @@ package com.cxin.leetcodetest.leetCodeSolution;
 
 public class S04getMedian {
     public static void main(String[] args) {
-        int[] nums1 = new int[]{0,0,0,0,0};
-        int[] nums2 = new int[]{-1,0,0,0,0,0,1};
+        int[] nums1 = new int[]{0, 0, 0, 0, 0};
+        int[] nums2 = new int[]{-1, 0, 0, 0, 0, 0, 1};
         double res = findMedianSortedArrays(nums1, nums2);
         System.out.println("res = " + res);
     }
@@ -38,10 +38,10 @@ public class S04getMedian {
                 }
             }
         }
-        if(totalLength % 2 >0){//奇数个 用单个数得到中位数
-            res = targetNums[totalLength/2];
-        }else {//偶数个用 两个数得到中位数
-            res = (double) (targetNums[maxLength - 2] + targetNums[maxLength - 1]) /2;
+        if (totalLength % 2 > 0) {//奇数个 用单个数得到中位数
+            res = targetNums[totalLength / 2];
+        } else {//偶数个用 两个数得到中位数
+            res = (double) (targetNums[maxLength - 2] + targetNums[maxLength - 1]) / 2;
         }
         return res;
     }

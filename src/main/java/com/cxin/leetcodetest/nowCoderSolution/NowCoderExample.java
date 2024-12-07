@@ -24,7 +24,7 @@ public class NowCoderExample {
             set.add(num);
         }
         ArrayList<Integer> list = new ArrayList<>(set);
-        list.sort((a,b) -> a-b);
+        list.sort((a, b) -> a - b);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
